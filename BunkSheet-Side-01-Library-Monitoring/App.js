@@ -1,21 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import CountScreen from './Screens/CountScreen';
+import ListScreen from './Screens/ListScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+const MainNavigator = createBottomTabNavigator({
+  countScreen: { screen: CountScreen },
+  listScreen: { screen: ListScreen }
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
