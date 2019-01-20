@@ -65,7 +65,7 @@ class ListScreen extends Component {
       });
       console.log("All Books Array Holder: " + this.arrayHolder);
       const newData = this.arrayHolder.filter(item => {
-        const itemData = `${item.Author.toUpperCase()} ${item.Publisher.toUpperCase()} ${item.Title.toUpperCase()}`;
+        const itemData = `${item.data.volumeInfo.authors[0].toUpperCase()} ${item.data.volumeInfo.publisher.toUpperCase()} ${item.data.volumeInfo.title.toUpperCase()}`;
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
