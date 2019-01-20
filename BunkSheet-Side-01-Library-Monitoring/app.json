@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "BunkSheet-Side-01-Library-Monitoring",
+    "name": "Library-Monitoring",
     "slug": "BunkSheet-Side-01-Library-Monitoring",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
