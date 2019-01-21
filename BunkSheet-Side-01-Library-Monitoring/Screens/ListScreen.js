@@ -172,10 +172,18 @@ class ListScreen extends Component {
       />
     );
   }
+
+  onRefreshPress = () => {
+      this.makeRemoteRequest();
+  };
+
+
     render() {
         if (this.state.loading){
             return (
-                <ActivityIndicator size='large' animating={this.state.loading}/>
+              <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+                <ActivityIndicator size="large" color="#FF9800" animating={this.state.loading}/>
+              </View>
             );
         }
         return (
@@ -192,6 +200,18 @@ class ListScreen extends Component {
                           {this.crossIconFunctionality()}
                         </View>
                         {this.renderList()}
+
+                        <Button
+                            buttonStyle={styles.loginButton}
+                            onPress={() => this.onRefreshPress()}
+                            title="Refresh List"
+                            ViewComponent={require('expo').LinearGradient}
+                            linearGradientProps={{
+                                colors: ['#FF6F00', '#FFA000'],
+                                start: [1, 0],
+                                end: [0.2, 0],
+                            }}
+                        />
 
                     </View>
                 </TouchableWithoutFeedback>
@@ -231,6 +251,15 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingTop: 20,
   },
+  loginButton: {
+    backgroundColor: '#FFAB00',
+    borderRadius: 5,
+    height: 45,
+    marginTop: 10,
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 10
+},
 
   //Modals Styles
   popup: {
